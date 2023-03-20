@@ -158,6 +158,22 @@ console.log("\n",avg);
 // 2. Log the variable
 // 3. Log the number of products by brands
 
+const brands_dict = {};
+for (const brand of brands_unique) brands_dict[brand] = [];
+
+for( const el of marketplace)
+{
+  for(const brand of brands_unique )
+  { 
+    if(el.brand == brand)
+    {
+      brands_dict[brand].push(el);
+    }
+  }
+}
+
+console.log(brands_dict);
+
 // 🎯 TODO 9: Sort by price for each brand
 // 1. For each brand, sort the products by price, from highest to lowest
 // 2. Log the sort
