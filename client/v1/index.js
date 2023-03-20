@@ -35,6 +35,12 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // I can find on these e-shops
 // 2. Log the variable
 
+const cheapshirt = "https://www.loom.fr/products/le-t-shirt-homme?_pos=1&_sid=fbf8ec416&_ss=r";
+console.log(cheapshirt,"\n");
+
+
+
+
 /**
  * 👕
  * Easy 😁?
@@ -48,28 +54,86 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // 1. Create a variable and assign it the number of products
 // 2. Log the variable
 
+const { marketplace } = require('./data.js');
+const nbr_products = marketplace.length
+console.log("There are : ",nbr_products, " products in the list.\n");
+
+
 // 🎯 TODO 3: Brands name
 // 1. Create a variable and assign it the list of brands name only
 // 2. Log the variable
 // 3. Log how many brands we have
+
+const brands = [];
+
+for (const element of marketplace) 
+{
+  brands.push(element.brand);
+
+}
+
+const brands_unique = brands.filter((item, i, ar) => ar.indexOf(item) === i);
+console.log("The list of unique brands are : ",brands_unique);
+console.log("The number of brands is : ",brands_unique.length,"\n");
+
+
+
+
+
 
 // 🎯 TODO 4: Sort by price
 // 1. Create a function to sort the marketplace products by price
 // 2. Create a variable and assign it the list of products by price from lowest to highest
 // 3. Log the variable
 
+function sort_price(first, second) {
+  return first.price - second.price;
+}
+
+const marketplace_sortedprice = marketplace.sort(sort_price);
+//console.log(marketplace_sortedprice);
+
+
+
+
 // 🎯 TODO 5: Sort by date
 // 1. Create a function to sort the marketplace objects by products date
 // 2. Create a variable and assign it the list of products by date from recent to old
 // 3. Log the variable
 
+function sort_date(first, second) {
+  return new Date(second.released) - new Date(first.released);
+}
+
+const marketplace_sorteddate = marketplace.sort(sort_date);
+//console.log(marketplace_sorteddate);
+
+
 // 🎯 TODO 6: Filter a specific price range
 // 1. Filter the list of products between 50€ and 100€
 // 2. Log the list
 
+function btw_50_100(element) {
+  return element.price <= 100 && element.price >= 50;
+}
+
+const marketplace_50_100 =  marketplace.filter(btw_50_100);
+console.log(marketplace_50_100);
+
+
 // 🎯 TODO 7: Average price
 // 1. Determine the average price of the marketplace
 // 2. Log the average
+
+var total = 0;
+
+for (const el of marketplace)
+{
+  total = total + el.price;
+}
+
+const avg = (total/marketplace.length);
+console.log("\n",avg);
 
 /**
  * 🏎
