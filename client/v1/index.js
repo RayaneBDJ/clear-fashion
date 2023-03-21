@@ -30,6 +30,11 @@ console.log(MY_FAVORITE_BRANDS[0]);
  */
 
 // 🎯 TODO 1: The cheapest t-shirt
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 1 ")
+console.log("---------------------------------------")
+console.log("\n")
 // 0. I have 3 favorite brands stored in MY_FAVORITE_BRANDS variable
 // 1. Create a new variable and assign it the link of the cheapest t-shirt
 // I can find on these e-shops
@@ -51,6 +56,11 @@ console.log(cheapshirt,"\n");
  */
 
 // 🎯 TODO 2: Number of products
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 2 ")
+console.log("---------------------------------------")
+console.log("\n")
 // 1. Create a variable and assign it the number of products
 // 2. Log the variable
 
@@ -60,6 +70,11 @@ console.log("There are : ",nbr_products, " products in the list.\n");
 
 
 // 🎯 TODO 3: Brands name
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 3 ")
+console.log("---------------------------------------")
+console.log("\n")
 // 1. Create a variable and assign it the list of brands name only
 // 2. Log the variable
 // 3. Log how many brands we have
@@ -82,34 +97,49 @@ console.log("The number of brands is : ",brands_unique.length,"\n");
 
 
 // 🎯 TODO 4: Sort by price
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 4 ")
+console.log("---------------------------------------")
+console.log("\n")
 // 1. Create a function to sort the marketplace products by price
 // 2. Create a variable and assign it the list of products by price from lowest to highest
 // 3. Log the variable
 
-function sort_price(first, second) {
+function sort_price_asc(first, second) {
   return first.price - second.price;
 }
 
-const marketplace_sortedprice = marketplace.sort(sort_price);
+const marketplace_sortedprice = marketplace.sort(sort_price_asc);
 //console.log(marketplace_sortedprice);
 
 
 
 
 // 🎯 TODO 5: Sort by date
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 5 ")
+console.log("---------------------------------------")
+console.log("\n")
 // 1. Create a function to sort the marketplace objects by products date
 // 2. Create a variable and assign it the list of products by date from recent to old
 // 3. Log the variable
 
-function sort_date(first, second) {
+function sort_date_dsc(first, second) {
   return new Date(second.released) - new Date(first.released);
 }
 
-const marketplace_sorteddate = marketplace.sort(sort_date);
+const marketplace_sorteddate = marketplace.sort(sort_date_dsc);
 //console.log(marketplace_sorteddate);
 
 
 // 🎯 TODO 6: Filter a specific price range
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 6 ")
+console.log("---------------------------------------")
+console.log("\n")
 // 1. Filter the list of products between 50€ and 100€
 // 2. Log the list
 
@@ -143,6 +173,11 @@ console.log("\n",avg);
  */
 
 // 🎯 TODO 8: Products by brands
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 8 ")
+console.log("---------------------------------------")
+console.log("\n")
 // 1. Create an object called `brands` to manipulate products by brand name
 // The key is the brand name
 // The value is the array of products
@@ -175,12 +210,48 @@ for( const el of marketplace)
 console.log(brands_dict);
 
 // 🎯 TODO 9: Sort by price for each brand
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 9 ")
+console.log("---------------------------------------")
+console.log("\n")
 // 1. For each brand, sort the products by price, from highest to lowest
 // 2. Log the sort
+
+function sort_price_dsc(first, second) {
+  return second.price - first.price;
+}
+
+Object.keys(brands_dict).forEach(function(key, index) {
+  brands_dict[key].sort(sort_price_dsc);
+});
+
+console.log(brands_dict)
+
+
 
 // 🎯 TODO 10: Sort by date for each brand
 // 1. For each brand, sort the products by date, from old to recent
 // 2. Log the sort
+
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 10 ")
+console.log("---------------------------------------")
+console.log("\n")
+
+function sort_date_asc(first, second) {
+  return new Date(first.released) - new Date(second.released);
+}
+
+Object.keys(brands_dict).forEach(function(key, index) {
+  brands_dict[key].sort(sort_date_asc);
+});
+
+console.log(brands_dict)
+
+
+
 
 /**
  * 💶
@@ -192,6 +263,43 @@ console.log(brands_dict);
 // 🎯 TODO 11: Compute the p90 price value
 // 1. Compute the p90 price value of each brand
 // The p90 value (90th percentile) is the lower value expected to be exceeded in 90% of the products
+
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 11 ")
+console.log("---------------------------------------")
+console.log("\n")
+
+function percentile_price(dict,perc )
+{
+  const brands_dict_p = {};
+  for (const brand of brands_unique) brands_dict_p[brand] = 0;
+
+  for (const key of Object.keys(dict))
+  {
+      const prices = [];
+      for(let product of dict[key])
+      {
+        prices.push(product.price);
+      }
+      const sorted = prices.sort(sort_price_asc);
+      const pos = (sorted.length - 1) * perc;
+      const base = Math.floor(pos);
+      const rest = pos - base;
+      if (sorted[base + 1] !== undefined) {
+          brands_dict_p[key] = sorted[base] + rest * (sorted[base + 1] - sorted[base]);
+      } else {
+        brands_dict_p[key] = sorted[base];
+      }
+  }
+
+  return brands_dict_p;
+}
+
+const brands_dict_p90 = percentile_price(brands_dict,.90);
+
+console.log(brands_dict_p90);
+
 
 /**
  * 🧥
@@ -385,19 +493,116 @@ const COTELE_PARIS = [
 // // 1. Log if we have new products only (true or false)
 // // A new product is a product `released` less than 2 weeks.
 
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 1 ")
+console.log("---------------------------------------")
+console.log("\n")
+
+var bool = false 
+
+const today = new Date();
+
+for (let product of COTELE_PARIS)
+{   
+ const d2 = new Date(product.released);
+  d2.setDate(d2.getDate() + 2*7)
+
+  //console.log(today);
+  //console.log(d2);
+
+  if ( today <= d2)
+  {
+      bool = true 
+      console.log(product)
+  }
+
+}
+
+console.log(bool)
+
+
 // 🎯 TODO 2: Reasonable price
 // // 1. Log if coteleparis is a reasonable price shop (true or false)
 // // A reasonable price if all the products are less than 100€
+
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 2 ")
+console.log("---------------------------------------")
+console.log("\n")
+
+var bool_reas = false;
+var i = 0;
+
+for (let product of COTELE_PARIS)
+{   
+  if ( product.price < 100)
+  {
+      i += 1;
+      //console.log(product)
+  }
+
+}
+
+if( i == COTELE_PARIS.length -1 )
+{
+  bool_reas = true;
+}
+
+console.log(i);
+console.log(COTELE_PARIS.length)
+console.log(bool);
 
 // 🎯 TODO 3: Find a specific product
 // 1. Find the product with the uuid `2b9a47e3-ed73-52f6-8b91-379e9c8e526c`
 // 2. Log the product
 
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 3 ")
+console.log("---------------------------------------")
+console.log("\n")
+
+for(let product of COTELE_PARIS)
+{
+  if(product.uuid == "2b9a47e3-ed73-52f6-8b91-379e9c8e526c")
+  {
+    console.log(product);
+  }
+}
+
+
 // 🎯 TODO 4: Delete a specific product
 // 1. Delete the product with the uuid `2b9a47e3-ed73-52f6-8b91-379e9c8e526c`
 // 2. Log the new list of product
 
+
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 4 ")
+console.log("---------------------------------------")
+console.log("\n")
+const new_COTELE_PARIS = JSON.parse(JSON.stringify(COTELE_PARIS));
+
+for(let product of new_COTELE_PARIS)
+{
+  if(product.uuid == "2b9a47e3-ed73-52f6-8b91-379e9c8e526c")
+  {
+    new_COTELE_PARIS.pop(product);
+  }
+}
+console.log(new_COTELE_PARIS);
+
+
 // 🎯 TODO 5: Save the favorite product
+
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" TODO 5 ")
+console.log("---------------------------------------")
+console.log("\n")
+
 // We declare and assign a variable called `blueJacket`
 let blueJacket = {
   'link':
@@ -418,7 +623,16 @@ let jacket = blueJacket;
 jacket.favorite = true;
 
 // 1. Log `blueJacket` and `jacket` variables
+
+console.log(blueJacket);
+console.log(jacket);
+
 // 2. What do you notice?
+
+// ANSWER :  We noticed that the blueejacket got also updated !!
+// because "=" operator creates a new reference to the data and does not copy it on a new variable
+
+
 
 // we make a new assignment again
 blueJacket = {
@@ -434,6 +648,11 @@ blueJacket = {
 };
 
 // 3. Update `jacket` property with `favorite` to true WITHOUT changing blueJacket properties
+console.log("\n\nAfter copying the value correctly on a new variable :\n")
+jacket = JSON.parse( JSON.stringify(blueJacket))
+jacket.favorite = true;
+console.log(blueJacket);
+console.log(jacket);
 
 /**
  * 🎬
@@ -441,6 +660,21 @@ blueJacket = {
  * 🎬
  */
 
+console.log("\n")
+console.log("---------------------------------------")
+console.log(" Last To Do ")
+console.log("---------------------------------------")
+console.log("\n")
+
+
 // 🎯 LAST TODO: Save in localStorage
 // 1. Save MY_FAVORITE_BRANDS in the localStorage
 // 2. log the localStorage
+
+console.log(MY_FAVORITE_BRANDS);
+
+if (typeof window !== 'undefined')
+ {
+
+localStorage.setItem('MY_FAVORITE_BANDS', JSON.stringify(MY_FAVORITE_BRANDS));
+ }
