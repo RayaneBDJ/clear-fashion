@@ -10,20 +10,24 @@ const nodemon = require('nodemon')
 const parse = data => {
   const $ = cheerio.load(data);
 
-  return $('.productList-container .productList')
+  return $('.product-grid-container .product-grid .grid__item .card__information')
     .map((i, element) => {
       const name = $(element)
-        .find('.productList-title')
+        .find(' h3.card__heading')
         .text()
         .trim()
         .replace(/\s/g, ' ');
       const price = parseInt(
         $(element)
-          .find('.productList-price')
+          .find(' .price .price__container .price__regular .money')
           .text()
+          .replace('€','')
       );
 
-      return {name, price};
+      if(isNaN(price) == false )
+      {
+        return {name, price};
+      }
     })
     .get();
 };
