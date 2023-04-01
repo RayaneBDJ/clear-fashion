@@ -131,30 +131,3 @@ async function query3(sens) {
   }
 
 query3("DESC");
-
-
-// Query 3 
-// Find All products sorted by price 
-
-async function query4(sens) {
-    var sens_number = 1;
-    if(sens.toLowerCase() == "desc")
-    {
-        sens_number = -1;
-    }
-    console.log("\n")
-    console.log("---------------------------------------")
-    console.log(" Query 3 :Find All products sorted by price in a "+ sens+" order")
-    console.log("---------------------------------------")
-    console.log("\n")
-    const {client,db} = await connectToDatabase();
-    const collection = db.collection('products');
-    const products = await collection.aggregate([{$sort : { "price" : sens_number}}]).toArray();
-    console.log(products);
-    client.close(); 
-    console.log("---------------------------------------");
-    console.log("\n");
-    console.log("\n");
-  }
-
-query3("DESC");
