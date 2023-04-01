@@ -10,7 +10,7 @@ const nodemon = require('nodemon')
 const parse = data => {
   const $ = cheerio.load(data);
 
-  return $('.swiper-container .product-miniature')
+  return $('.container .products-list .product-miniature')
     .map((i, element) => {
       const name = $(element)
         .find('.product-miniature__title')

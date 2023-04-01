@@ -1,0 +1,880 @@
+[
+  {
+    "brand": "DEDICATED",
+    "rating": 79,
+    "products": [
+      {
+        "name": "Swim Shorts Sandhamn Brushed Waves Navy",
+        "price": 69
+      },
+      {
+        "name": "T-shirt Stockholm Butterfly Oat White",
+        "price": 39
+      },
+      {
+        "name": "Shirt Marstrand Butterfly Oat White",
+        "price": 89
+      },
+      {
+        "name": "Swim Shorts Sandhamn Black",
+        "price": 59
+      },
+      {
+        "name": "Swim Shorts Sandhamn Irregular Stripe Multi Color",
+        "price": 69
+      },
+      {
+        "name": "Board Shorts Toroe Big Leaf Duck Green",
+        "price": 79
+      },
+      {
+        "name": "Swim Shorts Sandhamn Big Leaf Duck Green",
+        "price": 69
+      },
+      {
+        "name": "T-shirt Stockholm Kramer Black",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm Newman White",
+        "price": 39
+      },
+      {
+        "name": "Shirt Marstrand Ocean Ink Multi Color",
+        "price": 89
+      },
+      {
+        "name": "Shirt Marstrand Zebra Blue",
+        "price": 89
+      },
+      {
+        "name": "Shirt Marstrand Palm Leaves Green",
+        "price": 89
+      },
+      {
+        "name": "Shirt Marstrand Black",
+        "price": 79
+      },
+      {
+        "name": "T-shirt Stockholm Seinfeld Family White",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm No Soup White",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm Jerry Black",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm George Black",
+        "price": 39
+      },
+      {
+        "name": "Windbreaker Skara Black",
+        "price": 99
+      },
+      {
+        "name": "Board Shorts Toroe Black",
+        "price": 79
+      },
+      {
+        "name": "Swim Shorts Sandhamn Dusty Yellow",
+        "price": 59
+      },
+      {
+        "name": "Board Shorts Toroe Painted Palmtrees Black",
+        "price": 79
+      },
+      {
+        "name": "Board Shorts Toroe Ditsy Sun Copper Brown",
+        "price": 79
+      },
+      {
+        "name": "Swim Shorts Sandhamn Zebra Blue",
+        "price": 69
+      },
+      {
+        "name": "Swim Shorts Sandhamn Coral Gems Black",
+        "price": 69
+      },
+      {
+        "name": "Swim Shorts Sandhamn Coral Gems Dusty Yellow",
+        "price": 69
+      },
+      {
+        "name": "Swim Shorts Sandhamn Ditsy Sun Copper Brown",
+        "price": 69
+      },
+      {
+        "name": "Swim Shorts Sandhamn Painted Palmtrees Black",
+        "price": 69
+      },
+      {
+        "name": "Swim Shorts Sandhamn Sea Green",
+        "price": 59
+      },
+      {
+        "name": "Swim Shorts Sandhamn Seabirds Sunset Multi Color",
+        "price": 69
+      },
+      {
+        "name": "Swim Shorts Sandhamn Sodalite Blue",
+        "price": 59
+      },
+      {
+        "name": "T-shirt Stockholm Camp Fires Off-White",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm All Out Boat Off-White",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm Base Dusty Yellow",
+        "price": 29
+      },
+      {
+        "name": "Sweatshirt Malmoe Base Dusty Yellow",
+        "price": 69
+      },
+      {
+        "name": "T-shirt Stockholm Base Cashmere Pink",
+        "price": 29
+      },
+      {
+        "name": "Sweatshirt Malmoe Base Cashmere Pink",
+        "price": 69
+      },
+      {
+        "name": "T-shirt Stockholm Shrigley Weed Off White",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm Shrigley Microwave Off White",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm Shrigley Dodo Off White",
+        "price": 39
+      },
+      {
+        "name": "T-shirt Stockholm Shrigley Bee Off White",
+        "price": 39
+      }
+    ]
+  },
+  {
+    "brand": "Montlimart",
+    "rating": 76,
+    "products": [
+      {
+        "name": "SWEAT FUSION",
+        "price": 105
+      },
+      {
+        "name": "POLO DUNE",
+        "price": 95
+      },
+      {
+        "name": "T-SHIRT ICONE",
+        "price": 55
+      },
+      {
+        "name": "POLO AMICAL",
+        "price": 80
+      },
+      {
+        "name": "PULL PLANETE",
+        "price": 135
+      },
+      {
+        "name": "POLO DUNE",
+        "price": 95
+      },
+      {
+        "name": "T-SHIRT AUDACIEUX",
+        "price": 60
+      },
+      {
+        "name": "CEINTURE KILOMETRE",
+        "price": 55
+      },
+      {
+        "name": "SWEAT RESSOURCE",
+        "price": 110
+      },
+      {
+        "name": "T-SHIRT ESTIVAL",
+        "price": 60
+      },
+      {
+        "name": "JEAN THOMAS",
+        "price": 110
+      },
+      {
+        "name": "POLO METHODE",
+        "price": 85
+      },
+      {
+        "name": "SWEAT MISSION",
+        "price": 120
+      },
+      {
+        "name": "POLO AMICAL",
+        "price": 80
+      },
+      {
+        "name": "T-SHIRT ICONE",
+        "price": 55
+      },
+      {
+        "name": "PULL POLLEN",
+        "price": 135
+      },
+      {
+        "name": "POLO RECORD",
+        "price": 80
+      },
+      {
+        "name": "CHEMISE CENTRE-VILLE",
+        "price": 105
+      },
+      {
+        "name": "T-SHIRT LIGUE",
+        "price": 70
+      },
+      {
+        "name": "BASKETS IMPACT",
+        "price": 149
+      },
+      {
+        "name": "VESTE ATELIER",
+        "price": 150
+      },
+      {
+        "name": "T-SHIRT IDEAL",
+        "price": 55
+      },
+      {
+        "name": "SWEAT MONDE",
+        "price": 110
+      },
+      {
+        "name": "POLO EMBLEME",
+        "price": 75
+      },
+      {
+        "name": "CHEMISE CENTRE-VILLE",
+        "price": 105
+      },
+      {
+        "name": "T-SHIRT PROMETTEUR",
+        "price": 60
+      },
+      {
+        "name": "T-SHIRT INITIAL",
+        "price": 55
+      },
+      {
+        "name": "PULL DAMIER",
+        "price": 140
+      },
+      {
+        "name": "SWEAT FUSION",
+        "price": 105
+      },
+      {
+        "name": "CHAUSSETTES TENNIS",
+        "price": 18
+      },
+      {
+        "name": "PULL DAMIER",
+        "price": 140
+      },
+      {
+        "name": "CEINTURE KILOMETRE",
+        "price": 55
+      },
+      {
+        "name": "T-SHIRT BLASON",
+        "price": 65
+      },
+      {
+        "name": "POLO AMICAL",
+        "price": 80
+      },
+      {
+        "name": "PULL PLANETE",
+        "price": 135
+      },
+      {
+        "name": "PULL POLLEN",
+        "price": 135
+      },
+      {
+        "name": "T-SHIRT CITADIN",
+        "price": 55
+      },
+      {
+        "name": "CHAUSSETTES TENNIS",
+        "price": 18
+      },
+      {
+        "name": "IMPERMEABLE AVERSE",
+        "price": 170
+      },
+      {
+        "name": "PULL DAMIER",
+        "price": 140
+      },
+      {
+        "name": "POLO CLUB",
+        "price": 80
+      },
+      {
+        "name": "T-SHIRT INITIAL",
+        "price": 55
+      },
+      {
+        "name": "SWEAT FUSION",
+        "price": 105
+      },
+      {
+        "name": "T-SHIRT ESSAIM",
+        "price": 55
+      },
+      {
+        "name": "PULL PLANETE",
+        "price": 135
+      },
+      {
+        "name": "PULL CONVICTION",
+        "price": 125
+      },
+      {
+        "name": "CHAUSSETTES COFFRET MONTLISOCKS",
+        "price": 45
+      },
+      {
+        "name": "SWEAT ENERGIE",
+        "price": 120
+      },
+      {
+        "name": "CEINTURE KILOMETRE",
+        "price": 55
+      },
+      {
+        "name": "T-SHIRT SYMBOLE",
+        "price": 70
+      },
+      {
+        "name": "CHAUSSETTES MONTLISOCKS",
+        "price": 15
+      },
+      {
+        "name": "T-SHIRT RESPECT",
+        "price": 75
+      },
+      {
+        "name": "CHEMISE PAULIN",
+        "price": 150
+      },
+      {
+        "name": "PULL DAMIER",
+        "price": 140
+      },
+      {
+        "name": "CHAUSSETTES MONTLISOCKS",
+        "price": 15
+      },
+      {
+        "name": "PULL VERITABLE",
+        "price": 135
+      },
+      {
+        "name": "CHEMISE PIERRELIN",
+        "price": 155
+      },
+      {
+        "name": "PULL DAMIER",
+        "price": 140
+      },
+      {
+        "name": "SWEAT CLIMAT",
+        "price": 95
+      },
+      {
+        "name": "CEINTURE KILOMETRE",
+        "price": 55
+      },
+      {
+        "name": "T-SHIRT RESPECT",
+        "price": 75
+      },
+      {
+        "name": "PULL EVOLUTION",
+        "price": 130
+      },
+      {
+        "name": "CHEMISE MAOLIN",
+        "price": 105
+      },
+      {
+        "name": "PULL PLANETE",
+        "price": 135
+      },
+      {
+        "name": "CHAUSSETTES MONTLISOCKS",
+        "price": 15
+      },
+      {
+        "name": "T-SHIRT ICONE",
+        "price": 55
+      },
+      {
+        "name": "CHAUSSETTES SEMAINIER MONTLISOCK",
+        "price": 95
+      },
+      {
+        "name": "T-SHIRT LIGUE",
+        "price": 70
+      },
+      {
+        "name": "PULL VERITABLE",
+        "price": 135
+      },
+      {
+        "name": "PULL VARIATION",
+        "price": 130
+      },
+      {
+        "name": "POLO RECORD",
+        "price": 80
+      },
+      {
+        "name": "T-SHIRT ESSAIM",
+        "price": 55
+      },
+      {
+        "name": "T-SHIRT RESPECT",
+        "price": 75
+      },
+      {
+        "name": "T-SHIRT ESSAIM",
+        "price": 55
+      },
+      {
+        "name": "PULL VERITABLE",
+        "price": 135
+      },
+      {
+        "name": "CEINTURE KILOMETRE",
+        "price": 55
+      },
+      {
+        "name": "POLO PARTAGE",
+        "price": 90
+      },
+      {
+        "name": "CHAUSSETTES MONTLISOCKS",
+        "price": 15
+      },
+      {
+        "name": "PULL EVOLUTION",
+        "price": 130
+      },
+      {
+        "name": "SWEAT CLIMAT",
+        "price": 95
+      },
+      {
+        "name": "T-SHIRT IDEAL",
+        "price": 55
+      },
+      {
+        "name": "T-SHIRT SYMBOLE",
+        "price": 70
+      },
+      {
+        "name": "PULL VARIATION",
+        "price": 130
+      },
+      {
+        "name": "CHEMISE CENTRE-VILLE",
+        "price": 110
+      },
+      {
+        "name": "SWEAT MONDE",
+        "price": 110
+      },
+      {
+        "name": "T-SHIRT JOUEUR",
+        "price": 70
+      },
+      {
+        "name": "T-SHIRT ESSAIM",
+        "price": 55
+      },
+      {
+        "name": "T-SHIRT RESPECT",
+        "price": 75
+      },
+      {
+        "name": "SWEAT MI-TEMPS",
+        "price": 110
+      },
+      {
+        "name": "CHEMISE MONTLIMART",
+        "price": 95
+      },
+      {
+        "name": "PULL DAMIER",
+        "price": 140
+      },
+      {
+        "name": "CHAUSSETTES CHEVRON",
+        "price": 17
+      },
+      {
+        "name": "PULL EVOLUTION",
+        "price": 130
+      },
+      {
+        "name": "VESTE ATELIER",
+        "price": 170
+      },
+      {
+        "name": "PULL PLANETE",
+        "price": 135
+      },
+      {
+        "name": "CEINTURE KILOMETRE",
+        "price": 55
+      },
+      {
+        "name": "T-SHIRT RESPECT",
+        "price": 75
+      },
+      {
+        "name": "CHAUSSETTES MONTLISOCKS",
+        "price": 15
+      },
+      {
+        "name": "SWEAT DETENTE",
+        "price": 115
+      },
+      {
+        "name": "PULL VERITABLE",
+        "price": 135
+      },
+      {
+        "name": "SWEAT DETENTE",
+        "price": 115
+      },
+      {
+        "name": "JOGGING MOELLEUX",
+        "price": 100
+      },
+      {
+        "name": "SWEAT CLIMAT",
+        "price": 95
+      },
+      {
+        "name": "T-SHIRT INITIAL",
+        "price": 55
+      },
+      {
+        "name": "CHAUSSETTES COFFRET MONTLISOCKS",
+        "price": 45
+      },
+      {
+        "name": "CHAUSSETTES COFFRET MONTLISOCKS",
+        "price": 45
+      },
+      {
+        "name": "T-SHIRT ESSAIM",
+        "price": 55
+      },
+      {
+        "name": "E-CARTE CADEAU",
+        "price": null
+      },
+      {
+        "name": "SWEAT CLIMAT",
+        "price": 95
+      },
+      {
+        "name": "POLO AMICAL",
+        "price": 80
+      },
+      {
+        "name": "T-SHIRT INITIAL",
+        "price": 55
+      },
+      {
+        "name": "CHEMISE SAINT PAUL",
+        "price": 150
+      },
+      {
+        "name": "PULL VERITABLE",
+        "price": 135
+      },
+      {
+        "name": "CHAUSSETTES MONTLISOCKS",
+        "price": 15
+      },
+      {
+        "name": "T-SHIRT BLASON",
+        "price": 65
+      },
+      {
+        "name": "CHEMISE MAOLIN",
+        "price": 95
+      },
+      {
+        "name": "CHEMISE MONTLIMART",
+        "price": 95
+      },
+      {
+        "name": "POLO MONTPOLO",
+        "price": 75
+      },
+      {
+        "name": "CHEMISE PIERRELIN",
+        "price": 155
+      },
+      {
+        "name": "CHAUSSETTES COFFRET COTELE",
+        "price": 45
+      },
+      {
+        "name": "CHEMISE CENTRE BOURG",
+        "price": 105
+      },
+      {
+        "name": "T-SHIRT IDEAL",
+        "price": 55
+      },
+      {
+        "name": "CHEMISE MONTLIMART",
+        "price": 105
+      },
+      {
+        "name": "CHAUSSETTES MONTLISOCKS",
+        "price": 15
+      },
+      {
+        "name": "CHEMISE PAULIN",
+        "price": 150
+      },
+      {
+        "name": "CHEMISE CENTRE-VILLE",
+        "price": 115
+      },
+      {
+        "name": "CHEMISE SAINT REMY",
+        "price": 155
+      },
+      {
+        "name": "SWEAT MI-TEMPS",
+        "price": 110
+      },
+      {
+        "name": "CHEMISE SAINT PIERRE",
+        "price": 150
+      },
+      {
+        "name": "T-SHIRT ESSAIM",
+        "price": 55
+      },
+      {
+        "name": "CHEMISE SAINT PIERRE",
+        "price": 145
+      },
+      {
+        "name": "POLO MONTPOLO",
+        "price": 75
+      },
+      {
+        "name": "POLO EMBLEME",
+        "price": 75
+      },
+      {
+        "name": "CHEMISE MONTLIMART",
+        "price": 95
+      },
+      {
+        "name": "SWEAT CLIMAT",
+        "price": 95
+      },
+      {
+        "name": "POLO MONTPOLO",
+        "price": 75
+      },
+      {
+        "name": "CHEMISE CENTRE-LIN",
+        "price": 100
+      },
+      {
+        "name": "CHEMISE MAOLIN",
+        "price": 95
+      },
+      {
+        "name": "CHEMISE SURTOUT",
+        "price": 115
+      },
+      {
+        "name": "PULL DAMIER",
+        "price": 140
+      },
+      {
+        "name": "CHEMISE SURTOUT",
+        "price": 115
+      },
+      {
+        "name": "CHEMISE MONTLILIN",
+        "price": 105
+      },
+      {
+        "name": "CHEMISE CENTRE BOURG",
+        "price": 105
+      },
+      {
+        "name": "CHEMISE MONTLIMART",
+        "price": 105
+      },
+      {
+        "name": "CHEMISE CENTRE-LIN",
+        "price": 100
+      },
+      {
+        "name": "CHEMISE SURTOUT",
+        "price": 115
+      },
+      {
+        "name": "CHEMISE SAINT REMY",
+        "price": 160
+      },
+      {
+        "name": "CHEMISE SAINT PIERRE",
+        "price": 150
+      },
+      {
+        "name": "CHEMISE CENTRE-LIN",
+        "price": 105
+      },
+      {
+        "name": "CHEMISE MONTLILIN",
+        "price": 115
+      },
+      {
+        "name": "CHEMISE POLAROID",
+        "price": 90
+      },
+      {
+        "name": "CHEMISE SAINT REMY",
+        "price": 155
+      },
+      {
+        "name": "SWEAT CAMPUS",
+        "price": 100
+      },
+      {
+        "name": "POLO RENAISSANCE",
+        "price": 85
+      }
+    ]
+  },
+  {
+    "brand": "Circle Sportswear",
+    "rating": 82,
+    "products": [
+      {
+        "name": "Haut sans manche Muscle Tee Quick Dry",
+        "price": 59
+      },
+      {
+        "name": "T-shirt Iconic Playground",
+        "price": 69
+      },
+      {
+        "name": "T-shirt de Sport Iconic POP",
+        "price": 69
+      },
+      {
+        "name": "Short de Sport One For All",
+        "price": 69
+      },
+      {
+        "name": "T-shirt Technique Agility",
+        "price": 65
+      },
+      {
+        "name": "T-shirt à manches longues Feel Good POP",
+        "price": 85
+      },
+      {
+        "name": "Haut sans manche Muscle Tee",
+        "price": 59
+      },
+      {
+        "name": "T-shirt de Sport Iconic",
+        "price": 65
+      },
+      {
+        "name": "T-shirt Iconic Manifesto",
+        "price": 69
+      },
+      {
+        "name": "Short de Compression Hit The Road",
+        "price": 75
+      },
+      {
+        "name": "Chaussettes de running Speedy Low",
+        "price": 19
+      },
+      {
+        "name": "Chaussettes de running Speedy High",
+        "price": 22
+      },
+      {
+        "name": "Pantalon de Jogging Get Lucky",
+        "price": 139
+      },
+      {
+        "name": "Hoodie Oversize Get Lucky",
+        "price": 149
+      },
+      {
+        "name": "T-shirt à manches longues Feel Good",
+        "price": 79
+      },
+      {
+        "name": "Legging de Running Homme Men in Tights",
+        "price": 95
+      },
+      {
+        "name": "Legging de Running Homme Lightning",
+        "price": 125
+      },
+      {
+        "name": "Haut à manches longues Homme Flow",
+        "price": 145
+      },
+      {
+        "name": "Short de Sport Swell",
+        "price": 119
+      },
+      {
+        "name": "T-shirt Iconic Social",
+        "price": 50
+      },
+      {
+        "name": "Haut à manches longues Homme - Motivation",
+        "price": 85
+      }
+    ]
+  }
+]

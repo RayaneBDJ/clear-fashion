@@ -1,7 +1,7 @@
 /* eslint-disable no-console, no-process-exit */
-const dedicatedbrand = require('./eshops/circle.js');
+const dedicatedbrand = require('./eshops/montlimartbrand.js');
 
-async function sandbox (eshop = 'https://shop.circlesportswear.com/collections/collection-homme') {
+async function sandbox (eshop = 'https://www.montlimart.com/99-vetements') {
     try {
       console.log(`🕵️‍♀️  browsing ${eshop} eshop`);
 

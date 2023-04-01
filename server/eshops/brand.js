@@ -39,7 +39,7 @@ const parse = (data,brand_name) => {
     .get();
   } else if ( brand_name == "Montlimart")
   {
-    return $('.swiper-container .product-miniature')
+    return $('.container .products-list .product-miniature')
     .map((i, element) => {
       const name = $(element)
         .find('.product-miniature__title')
