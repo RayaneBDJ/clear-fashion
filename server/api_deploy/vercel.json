@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "builds": [{"src": "api.js", "use": "@now/node"}],
-  "routes": [{"src": "/(.*)", "dest": "api.js"}],
   "functions": {
-    "timeout": 30
+    "api": {
+      "memory": 512,
+      "maxDuration": 40
+    }
   }
 }
+
