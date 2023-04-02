@@ -2,7 +2,6 @@ require('dotenv').config()
 
 const cors = require('cors');
 const express = require('express');
-const helmet = require('helmet');
 const { MongoClient } = require('mongodb');
 const { connectToDatabase } = require('./db/connect');
 const { Product } = require("./model/product")
@@ -12,9 +11,6 @@ const app = express();
 const PORT = process.env.PORT || 8092;
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
-app.use(helmet());
 
 async function connect() {
   const db = await connectToDatabase(process.env.MONGODB_URI, (error) => {
@@ -37,8 +33,10 @@ const display_product = async (req, res) => {
   }
 }
 
-router.get("/", display_product);
-app.use("/api/v1", router);
+/*router.get("/", display_product);
+app.use("/api/v1", router);*/
+
+app.get('/api/data', display_product);
 
 app.listen(PORT, () => {
   console.log(`📡 Running on port ${PORT}`);
