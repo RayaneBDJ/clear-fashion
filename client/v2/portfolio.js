@@ -41,7 +41,7 @@ const setCurrentProducts = ({result, meta}) => {
 const fetchProducts = async (page = 1, size = 12) => {
   try {
     const response = await fetch(
-      `https://clear-fashion-api.vercel.app?page=${page}&size=${size}`
+      `https://clear-fashion-ashen-six.vercel.app/products`
     );
     const body = await response.json();
 
@@ -56,7 +56,6 @@ const fetchProducts = async (page = 1, size = 12) => {
     return {currentProducts, currentPagination};
   }
 };
-
 /**
  * Render list of products
  * @param  {Array} products
@@ -69,7 +68,7 @@ const renderProducts = products => {
       return `
       <div class="product" id=${product.uuid}>
         <span>${product.brand}</span>
-        <a href="${product.link}">${product.name}</a>
+        <a>${product.product}</a>
         <span>${product.price}</span>
       </div>
     `;
