@@ -3,14 +3,42 @@ require('dotenv').config()
 const cors = require('cors');
 const express = require('express');
 const { MongoClient } = require('mongodb');
-const { connectToDatabase } = require('./db/connect');
-const { Product } = require("./model/product")
+
 
 const router = express.Router();
 const app = express();
 const PORT = process.env.PORT || 8092;
 
 app.use(express.urlencoded({ extended: true }));
+
+
+var client = null;
+var db = null;
+
+async function connectToDatabase(url,callback)  {
+
+    const MONGODB_DB_NAME = 'clearfashion';
+  
+    if(client == null){
+        const client = await MongoClient.connect(url, { useNewUrlParser: true });
+        db = client.db(MONGODB_DB_NAME);
+        console.log('Connected to mongo database')
+          
+    } else 
+    {
+        callback();
+        
+    }
+  
+    return db;
+}
+
+function closeConnect(){
+    if(client){
+        client.close();
+        client = null;
+    }
+}
 
 async function connect() {
   const db = await connectToDatabase(process.env.MONGODB_URI, (error) => {
