@@ -3,7 +3,7 @@
   "functions": {
     "api": {
       "memory": 512,
-      "maxDuration": 40
+      "maxDuration": 10
     }
   }
 }
