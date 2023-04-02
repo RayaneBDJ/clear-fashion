@@ -4,7 +4,7 @@
   "description": "What's the story behind each item of clothing you buy?",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon api.js"
+    "start": "node api.js"
   },
   "repository": "git@github.com:92bondstreet/clear-fashion.git",
   "dependencies": {
