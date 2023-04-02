@@ -81,11 +81,41 @@ const display_product = async (req, res) => {
   }
 }
 
-/*router.get("/", display_product);
-app.use("/api/v1", router);*/
+const search = async (req, res,next) => {
+  try {
+    const client = await MongoClient.connect(MONGODB_URI, {'useNewUrlParser': true});
+    const db = client.db(MONGODB_DB_NAME);
+    const collection = db.collection('products');
+
+    const filters = req.query;
+  
+    const result = await collection.find({}).toArray();
+    const filteredProducts = result.filter(product => {
+      let isValid = true
+      for(key in filters){
+        isValid = isValid && product[key] == filters[key];
+      }
+      return isValid;
+    })
+  
+    res.json(filteredProducts);
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+}
+
+/*router.get("/", display_product);*/
 
 
-app.get('/products', async (req, res) => {
+// GET 
+
+app.get("/products", display_product);
+app.get('/search',search)
+
+
+/*app.get('/products', async (req, res) => {
   try {
     const client = await MongoClient.connect(MONGODB_URI, {'useNewUrlParser': true});
     const db = client.db(MONGODB_DB_NAME);
@@ -99,4 +129,4 @@ app.get('/products', async (req, res) => {
     console.log(error);
     res.status(500).json(error);
   }
-})
+})*/

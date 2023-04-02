@@ -3,6 +3,6 @@
   "builds": [{"src": "api.js", "use": "@now/node"}],
   "routes": [{"src": "/(.*)", "dest": "api.js"}],
   "functions": {
-    "timeout": 30
+    "timeout": 50
   }
 }
