@@ -84,5 +84,19 @@ const display_product = async (req, res) => {
 /*router.get("/", display_product);
 app.use("/api/v1", router);*/
 
-app.get('/api/data', display_product);
 
+app.get('/products', async (req, res) => {
+  try {
+    const client = await MongoClient.connect(MONGODB_URI, {'useNewUrlParser': true});
+    const db = client.db(MONGODB_DB_NAME);
+    const collection = db.collection('products');
+  
+    const result = await collection.find({}).toArray();
+  
+    res.json(result);
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+})
