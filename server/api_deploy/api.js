@@ -52,7 +52,7 @@ const display_product = async (req,res) => {
   
 }
 
-router.route("/products").get(display_product);
+router.route("/").get(display_product);
 
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
