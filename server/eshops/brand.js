@@ -6,7 +6,7 @@ const nodemon = require('nodemon');
 var fs=require('fs');
 var data = JSON.parse( fs.readFileSync('brands.json', 'utf8') );
 
-console.log(data);
+//console.log(data);
 const brands_name = data.map(x => x.brand);
 
 
@@ -119,7 +119,7 @@ var fs=require('fs');
 var data=fs.readFileSync('brands.json', 'utf8');
 var words=JSON.parse(data);
 var bodyparser=require('body-parser');
-console.log(words);
+//console.log(words);
 var express=require('express');
 
 var app=express();

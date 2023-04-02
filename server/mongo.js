@@ -2,8 +2,8 @@ const fs=require('fs');
 const { connect } = require('http2');
 
 
-var data = JSON.parse( fs.readFileSync('server/brands_products.json', 'utf8') );
-console.log(data);
+var data = JSON.parse( fs.readFileSync('brands_products.json', 'utf8') );
+//console.log(data);
 const brands_name = data.map(x => x.brand);
 
 new_data = []
@@ -36,6 +36,9 @@ async function connectToDatabase() {
   
     const client = await MongoClient.connect(MONGODB_URI, { useNewUrlParser: true });
     const db = client.db(MONGODB_DB_NAME);
+    console.log("\n")
+    console.log("\n")
+    console.log('Connected to mongo database')
   
     return {client, db};
 }
@@ -43,13 +46,24 @@ async function connectToDatabase() {
 async function insertData() {
     const {client,db} = await connectToDatabase();
     const collection = db.collection('products');
-    const result = await collection.insertMany(new_data);
-    console.log(result);
+    try 
+    {
+        const result = await collection.insertMany(new_data,{ ordered: false }); 
+    }
+    catch
+    {
+      console.log("The inserted data is already in it ")
+    }
+    const all = await collection.find({}).toArray(); // to avoid duplicates
+    console.log(all.length.toString() + ' products in the database ');
+  
+    console.log("\n")
+    console.log("\n")
     client.close(); 
   }
 
 
-//console.log(insertData())
+insertData();
 
 // Create at least 3 methods to find products according query.
 
@@ -61,20 +75,29 @@ async function insertData() {
 async function query1(brand) {
     console.log("\n")
     console.log("---------------------------------------")
-    console.log(" Query 1 : Find all products related to a given brand ")
+    console.log(" Query 1 : Find all products related to the \"" + brand + "\" brand ")
     console.log("---------------------------------------")
     console.log("\n")
     const {client,db} = await connectToDatabase();
     const collection = db.collection('products');
     const products = await collection.find({brand : brand}).toArray();
-    console.log(products);
     client.close(); 
+    console.log("The number of products found for this brand is : " + products.length.toString() + " products");
+    console.log("\n")
     console.log("---------------------------------------");
     console.log("\n");
     console.log("\n");
+    console.log(products)
+    console.log("---------------------------------------");
+    console.log("\n");
+    console.log("\n");
+    return products.length
   }
 
-//query1("DEDICATED");
+query1("DEDICATED");
+
+
+
 
 
 /*setTimeout(function(){
@@ -130,4 +153,4 @@ async function query3(sens) {
     console.log("\n");
   }
 
-query3("DESC");
+//query3("DESC");
