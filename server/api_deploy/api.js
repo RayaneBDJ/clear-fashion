@@ -1,8 +1,9 @@
-require('dotenv').config()
-
 const cors = require('cors');
 const express = require('express');
+const helmet = require('helmet')
 const { MongoClient } = require('mongodb');
+const MONGODB_URI = 'mongodb+srv://rayanebadji00website:rmbm@cluster0.qz4srom.mongodb.net/test';
+const MONGODB_DB_NAME ="clearfashion";
 
 
 const router = express.Router();
@@ -10,6 +11,20 @@ const app = express();
 const PORT = process.env.PORT || 8092;
 
 app.use(express.urlencoded({ extended: true }));
+
+app.use(require('body-parser').json());
+app.use(cors());
+app.use(helmet());
+
+app.options('*',cors());
+
+app.get('/', (request, response) => {
+  response.send({'ack': true});
+});
+
+app.listen(PORT, () => {
+  console.log(`📡 Running on port ${PORT}`);
+});
 
 
 var client = null;
@@ -41,7 +56,7 @@ function closeConnect(){
 }
 
 async function connect() {
-  const db = await connectToDatabase(process.env.MONGODB_URI, (error) => {
+  const db = await connectToDatabase(MONGODB_URI, (error) => {
     if (error) {
       console.log("Error when trying to connect to the database");
       process.exit(-1);
@@ -52,9 +67,14 @@ async function connect() {
 
 const display_product = async (req, res) => {
   try {
-    const db = await connect();
-    let result = await db.collection("products").find({}).toArray();
-    res.status(200).json(result);
+    const client = await MongoClient.connect(MONGODB_URI, {'useNewUrlParser': true});
+    const db = client.db(MONGODB_DB_NAME);
+    const collection = db.collection('products');
+  
+    const result = await collection.find({}).toArray();
+  
+    res.json(result);
+
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -66,6 +86,3 @@ app.use("/api/v1", router);*/
 
 app.get('/api/data', display_product);
 
-app.listen(PORT, () => {
-  console.log(`📡 Running on port ${PORT}`);
-});
