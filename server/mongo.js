@@ -17,8 +17,10 @@ for(const brand of data)
     {
         const brand_product_name = product.name;
         const brand_product_price = product.price ;
+        const brand_product_image = product.image;
+        const brand_product_image_link = product.image_link;
 
-        new_data.push({"brand" : brand_name,"rating" : brand_rate,"product" : brand_product_name,"price" :brand_product_price});
+        new_data.push({"brand" : brand_name,"rating" : brand_rate,"product" : brand_product_name,"price" :brand_product_price, "image" : brand_product_image,"image_link":brand_product_image_link});
     }
 }
 
@@ -44,24 +46,25 @@ async function connectToDatabase() {
 }
 
 async function insertData() {
-    const {client,db} = await connectToDatabase();
-    const collection = db.collection('products');
-    try 
-    {
-        const result = await collection.insertMany(new_data,{ ordered: false }); 
+  const { client, db } = await connectToDatabase();
+  const collection = db.collection('products');
+  try {
+    for (const document of new_data) {
+      const doc_exist = await collection.find({ product: document.product }).toArray();
+      if (doc_exist.length === 0) {
+        await collection.insertOne(document);
+      }
     }
-    catch
-    {
-      console.log("The inserted data is already in it ")
+  } catch (err) {
+    // Ignore duplicate key errors (code 11000)
+    if (err.code !== 11000) {
+      throw err; // re-throw other errors
     }
-    const all = await collection.find({}).toArray(); // to avoid duplicates
-    console.log(all.length.toString() + ' products in the database ');
-  
-    console.log("\n")
-    console.log("\n")
-    client.close(); 
   }
-
+  const all = await collection.find({}).toArray(); // to avoid duplicates
+  console.log(`${all.length} products in the database`);
+  client.close();
+}
 
 insertData();
 

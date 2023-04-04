@@ -35,8 +35,11 @@ const parse = (data,brand_name) => {
       const image = $(element)
           .find('.productList-image img')
           .attr('data-src');
-
-      return {name, price, image};
+      let image_link = $(element)
+          .find('.productList-link')
+          .attr('href');
+      image_link = "https://www.dedicatedbrand.com"+image_link
+      return {name, price, image,image_link};
     })
     .get();
   } else if ( brand_name == "Montlimart")
@@ -53,29 +56,44 @@ const parse = (data,brand_name) => {
           .find('.product-miniature__pricing')
           .text()
       );
+      const image = $(element)
+      .find('.product-miniature__thumb-link img')
+      .attr('data-full-size-image-url');
+      const image_link = $(element)
+      .find('.product-miniature__thumb-link')
+      .attr('href');
 
-      return {name, price};
+      return {name, price,image,image_link};
     })
     .get();
   } else if ( brand_name == "Circle Sportswear")
   {
-    return $('.product-grid-container .product-grid .grid__item .card__information')
+    return $('.product-grid-container .product-grid .grid__item ')
     .map((i, element) => {
-      const name = $(element)
-        .find(' h3.card__heading')
+      let name = $(element)
+        .find('.card__information .card__heading')
         .text()
         .trim()
-        .replace(/\s/g, ' ');
+        .replace(/\s+/g, ' ')
       const price = parseInt(
         $(element)
-          .find(' .price .price__container .price__regular .money')
+          .find(' .card__information .price .price__container .price__regular .money')
           .text()
           .replace('€','')
       );
+      const image = $(element)
+      .find('.media img')
+      .attr('srcset');
+      let image_link = $(element)
+      .find('.card__information .full-unstyled-link')
+      .attr('href');
+
+      name = name.replace(/(.+)(\s+\1)+/gi, '$1');
+      image_link = "https://shop.circlesportswear.com/collections/collection-homme"+image_link
 
       if(isNaN(price) == false )
       {
-        return {name, price};
+        return {name, price,image,image_link};
       }
     })
     .get();
