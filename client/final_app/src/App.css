@@ -1,0 +1,72 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo.dedicated {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.circle{
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.montlimart{
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* display 4 products in a row */
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.load-button {
+  background-color: #413e8e;
+  color: white;
+  padding: 5px 10px; /* Decrease the padding to make the button smaller */
+  border: none;
+  border-radius: 5px;
+  font-size: 12px; /* Decrease the font size */
+  cursor: pointer;
+}
+
+.load-button:hover {
+  background-color: #3e6d8e; /* Darken the background color on hover */
+}
+
+
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

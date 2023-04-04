@@ -30,11 +30,13 @@ const parse = (data,brand_name) => {
         .replace(/\s/g, ' ');
       const price = parseInt(
         $(element)
-          .find('.productList-price')
-          .text()
-      );
+          .find('.productList-price ')
+          .text());
+      const image = $(element)
+          .find('.productList-image img')
+          .attr('data-src');
 
-      return {name, price};
+      return {name, price, image};
     })
     .get();
   } else if ( brand_name == "Montlimart")

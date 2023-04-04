@@ -71,7 +71,8 @@ const display_product = async (req, res) => {
     const db = client.db(MONGODB_DB_NAME);
     const collection = db.collection('products');
   
-    const result = await collection.find({}).toArray();
+    const limit = parseInt(req.query.limit) ;
+    const result = await collection.find({}).limit(limit).toArray();
   
     res.json(result);
 
