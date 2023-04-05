@@ -11,7 +11,7 @@ function App() {
   const sectionProducts = document.querySelector('#products');
   const spanNbProducts = document.querySelector('#nbProducts');
 
-  const API_URL = 'http://localhost:8092/';
+  const API_URL = 'https://clear-fashion-dynm.vercel.app/';
   const loadProductsButton = document.getElementById('loadProducts');
   const loadIndicatorsButton = document.getElementById('indicators');
   const productCountElement = document.getElementById('product-count');
