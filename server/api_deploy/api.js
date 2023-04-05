@@ -18,9 +18,6 @@ app.use(helmet());
 
 app.options('*',cors());
 
-app.get('/', (request, response) => {
-  response.send({'ack': true});
-});
 
 app.listen(PORT, () => {
   console.log(`📡 Running on port ${PORT}`);
@@ -65,14 +62,13 @@ async function connect() {
   return db;
 }
 
-const display_product = async (req, res) => {
+const display_product = async (req, res,next) => {
   try {
     const client = await MongoClient.connect(MONGODB_URI, {'useNewUrlParser': true});
     const db = client.db(MONGODB_DB_NAME);
     const collection = db.collection('products');
   
-    const limit = parseInt(req.query.limit) ;
-    const result = await collection.find({}).limit(limit).toArray();
+    const result = await collection.find().toArray();
   
     res.json(result);
 
@@ -82,24 +78,34 @@ const display_product = async (req, res) => {
   }
 }
 
-const search = async (req, res,next) => {
+const search = async (req, res, next) => {
   try {
-    const client = await MongoClient.connect(MONGODB_URI, {'useNewUrlParser': true});
+    const client = await MongoClient.connect(MONGODB_URI, { useNewUrlParser: true });
     const db = client.db(MONGODB_DB_NAME);
     const collection = db.collection('products');
 
     const filters = req.query;
-  
-    const result = await collection.find({}).toArray();
-    const filteredProducts = result.filter(product => {
-      let isValid = true
-      for(key in filters){
-        isValid = isValid && product[key] == filters[key];
-      }
-      return isValid;
-    })
-  
-    res.json(filteredProducts);
+
+    const limit = parseInt(req.query.limit);
+    const brand = req.query.brand ? { $regex: new RegExp(req.query.brand, 'i') } : { $exists: true };
+    const price = parseFloat(req.query.price);
+
+    let query = { brand };
+    if (!isNaN(price)) {
+      query.price = { $lte: price };
+    }
+    if(req.query.sortBy && req.query.sortOrder)
+      { const sortBy = req.query.sortBy || 'price';
+      const sortOrder = req.query.sortOrder || 'asc';
+      var sort = {};
+      sort[sortBy] = sortOrder === 'asc' ? 1 : -1;
+      sort[sortBy] = sortOrder === 'desc' ? -1 : 1;
+     }
+    
+
+    const result = await collection.find(query).limit(limit).sort(sort).toArray();
+
+    res.json(result);
 
   } catch (error) {
     console.log(error);
@@ -112,7 +118,7 @@ const search = async (req, res,next) => {
 
 // GET 
 
-app.get("/products", display_product);
+app.get("/", display_product);
 app.get('/search',search)
 
 

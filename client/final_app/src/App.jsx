@@ -11,7 +11,7 @@ function App() {
   const sectionProducts = document.querySelector('#products');
   const spanNbProducts = document.querySelector('#nbProducts');
 
-  const API_URL = 'http://localhost:8092/products';
+  const API_URL = 'http://localhost:8092/';
   const loadProductsButton = document.getElementById('loadProducts');
   const loadIndicatorsButton = document.getElementById('indicators');
   const productCountElement = document.getElementById('product-count');
@@ -21,10 +21,15 @@ function App() {
   //loadProductsButton.addEventListener('click', loadProducts);
 
 
-  // functions to load data 
+  // Values to chose
   const [productCount, setProductCount] = useState(10);
+  const [brand, setBrand] = useState([]);
   const [products, setProducts] = useState([]);
   const [allproducts, setAllProducts] = useState([]);
+  const [priceReasonable, setPriceReasonable] = useState(1000);
+  const [sort, setSortPrice] = useState('');
+  const [dataASC, setSortPriceASC] = useState([]);
+  const [dataDESC, setSortPriceDESC] = useState([]);
 
 
 // Indicators 
@@ -46,7 +51,38 @@ function App() {
 
 
 
-    // fonction that calculates p50,p90,p95 value price value of allproducts
+    // create all the fonction that calculates p50,p90,p95 value price value of allproducts
+      
+      function sort_price_asc(first, second) {
+        return first.price - second.price;
+      }
+      const all_products_sorted = allproducts.sort(sort_price_asc);
+      var index_50 = (allproducts.length - 1) * 0.50;
+      var index_90 = (allproducts.length - 1) * 0.90;
+      var index_95 = (allproducts.length - 1) * 0.95;
+
+      var result_p50 = 0;
+      var result_p90 = 0;
+      var result_p95 = 0;
+
+      if(index_90 > 1 & index_95 > 1 & index_50 > 1)
+      {
+          result_p50 = all_products_sorted[Math.floor(index_50)].price;
+          result_p90 = all_products_sorted[Math.floor(index_90)].price;
+          result_p95 = all_products_sorted[Math.floor(index_95)].price;
+
+      }
+
+      /*var result;
+      if (Math.floor(index) === index) {
+        result = (arr[index].price + arr[index + 1].price) / 2;
+      } else {
+        result = arr[Math.floor(index)].price;
+      }*/
+
+    /*result_p50 = percentile(allproducts, 0.5);
+    result_p90 = percentile(allproducts, 0.9);
+    result_p95 = percentile(allproducts, 0.95);*/
 
 
     return (
@@ -58,19 +94,15 @@ function App() {
         </div>
         <div>
           <span>p50 price value: </span>
-          <span>0</span>
+          <span>{result_p50} euros</span>
         </div>
         <div>
-          <span>p90 price value</span>
-          <span>0</span>
+          <span>p90 price value: </span>
+          <span>{result_p90} euros</span>
         </div>
         <div>
-          <span>p95 price value</span>
-          <span>{typeof allproducts}</span>
-        </div>
-        <div>
-          <span>Last released date</span>
-          <span>2020-01-01</span>
+          <span>p95 price value: </span>
+          <span>{result_p95} euros</span>
         </div>
       </div>
     );
@@ -99,26 +131,46 @@ function App() {
 
 
   // Filters Functions
-  const ProductList = React.memo(({ products }) => {
+  const ProductList = React.memo(({ products}) => {
+
+  
     return (
       <div class="productList">
-      {products.map((product, index) => (
-        <div class = "product">
-          <a href={product.image_link}>
-            <img class = "img-product" src={product.image} alt={product.product} />
-          </a>
-          <h5>{product.product}</h5>
-          <p>{product.brand}</p>
-          <p>{product.price} euros</p>
-        </div>
-      ))}
+        {products.map((product, index) => (
+          <div class="product" key={index}>
+            <a href={product.image_link}>
+              <img class="img-product" src={product.image} alt={product.product} />
+            </a>
+            <h5>{product.product}</h5>
+            <p>{product.brand}</p>
+            <p>{product.price} euros</p>
+          </div>
+        ))}
       </div>
     );
   });
   
   async function loadProducts() {
-    const url = `${API_URL}?limit=${productCount}`;
+
   
+    let brandParam = brand;
+    let sortParam = sort;
+
+    if (brand === "default") {
+      brandParam = "";
+    }
+    if(sort === "price-asc"){
+      sortParam = "asc";
+    }
+    if(sort === "price-desc")
+    {
+      sortParam = "desc";
+    }
+    if(sort === "default")
+    {
+      sortParam = "";
+    }
+    const url = `${API_URL}search?limit=${productCount}&price=${priceReasonable}&brand=${brandParam}&sortBy=price&sortOrder=${sortParam}`;
     try {
       console.log(`Fetching products from ${url}...`);
       const response = await fetch(url);
@@ -127,19 +179,38 @@ function App() {
       }
       const data = await response.json();
       console.log(`Fetched ${data.length} products`);
+  
+      const dataASC = data.slice().sort((a, b) => a.price - b.price);
+      const dataDESC = data.slice().sort((a, b) => b.price - a.price);
+  
       setProducts(data);
+      setSortPriceASC(dataASC);
+      setSortPriceDESC(dataDESC);
+      
     } catch (error) {
       console.error(error);
     }
-
   }
+  
+
 
 
   function handleProductCountChange(event) {
     setProductCount(event.target.value);
   }
 
+  function handleBrandFilter(event) {
+    setBrand(event.target.value);
+    // TODO: Appeler loadProducts() avec le nouveau filtre
+  }
 
+  function handlePriceReasonableChange(event) {
+    setPriceReasonable(event.target.value);
+  }
+
+  function handlePriceFilter(event) {
+    setSortPrice(event.target.value);
+  }
 
 
 
@@ -168,27 +239,30 @@ function App() {
         <label htmlFor="productCount">Number of Products:</label>
         <input type="number" id="productCount" min="1" max="100" value={productCount} onChange={handleProductCountChange} />
       </div>
-      <div id="page">
-        <label for="page-select">Go to page:</label>
-        <select name="page" id="page-select"> </select>
-      </div>
       <div id="filters">
-        <span>By reasonable price</span>
-        <span>By recently released</span>
         <div id="brand">
-          <label for="brand-select">By brands:</label>
-          <select name="brand" id="brand-select"> </select>
+          <label for="brand-select">By brands: </label>
+          <select name="brand" id="brand-select" onChange={handleBrandFilter} >
+            <option value="default">Default</option>
+            <option value="dedicated">Dedicated</option>
+            <option value="montlimart">Montlimart</option>
+            <option value="circle">Circle+Sportswear</option>
+          </select>
         </div>
       </div>
+      <div>
+        <label htmlFor='priceReasonable' >By reasonable price: </label>
+        <input type="number" id="priceReasonable" min="1" max="150" value={priceReasonable} onChange={handlePriceReasonableChange} />
+      </div>
       <div id="sort">
-        <label for="sort-select">Sort:</label>
-        <select name="sort" id="sort-select">
+        <label for="sort-select">Sort: </label>
+        <select name="sort" id="sort-select" onChange={handlePriceFilter}>
+          <option value="default">Default</option>
           <option value="price-asc">Cheaper</option>
-          <option value="price-desc">Expensive</option>
-          <option value="date-asc">Recently released</option>
-          <option value="date-desc">Anciently released</option>
+          <option value="price-desc">Most Expensive</option>
         </select>
       </div>
+
       </section>
     <section id="indicators">
       <h2>Indicators</h2>
@@ -202,16 +276,10 @@ function App() {
     </div>
 
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
       <p className="read-the-docs">
         Click on the logos to look directly into the brands shops
       </p>
+      </div>
       <section id="products">
         <h1>Products</h1>
         <div className="productList" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
