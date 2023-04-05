@@ -2,9 +2,7 @@
   "version": 2,
   "builds": [{"src": "*.js", "use": "@now/node"}],
   "routes": [{"src": "/(.*)", "dest": "api.js"}],
-  "serverless": {
-    "function": {
+  "function": {
       "timeout": 30
     }
-  }
 }
